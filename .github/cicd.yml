@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy 自动部署
  	on: 
     push:
       branches:
@@ -8,13 +8,13 @@ name: Build and Deploy
       runs-on:ubuntu-latest
     steps:
         - uses:actions/checkout@v3
-        - uses:npm/action-setup@v2
-        with:
+        - uses:cnpm/action-setup@v2
+          with:
             version:8.6.2
         - uses:actions/setup-node@v3
-        with:
+          with:
           node-version:16.x
-        - run:npm install
+        - run:cnpm install
         - run:npm run build
         - name:action-Deploy
           uses:peaceiris/actions-gh-pages@v3
