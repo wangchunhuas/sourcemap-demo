@@ -61,7 +61,7 @@ onMounted(() => {
   }
 });
 
-const stackFrames = {
+let stackFrames = {
   line: 0,
   column: 0,
   index: 0,
@@ -78,7 +78,6 @@ const viewDescLogInfos = (item, index) => {
 const shourceMapUpload = async (file) => {
   if (file.name.substring(file.name.lastIndexOf(".") + 1) !== "map") {
     ElMessage.error("请传入正确的map文件");
-
     return;
   }
   const reader = new FileReader();
@@ -101,6 +100,7 @@ const getSource = async (sourcemap, line, column) => {
       line: line,
       column: column,
     });
+
     const _code = consumer.sourceContentFor(_original.source);
     return {
       source: _code,
