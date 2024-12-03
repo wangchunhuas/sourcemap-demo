@@ -28,13 +28,9 @@
         </el-collapse-item>
       </el-collapse>
       <el-dialog v-model="dialogVisible" title="sourceMap源码定位" width="500">
-        <el-tabs
-          v-model="tabactiveName"
-          class="demo-tabs"
-          @tab-click="handleClick"
-        >
+        <el-tabs v-model="tabactiveName" class="demo-tabs">
           <el-tab-pane label="本地上传" name="local">
-            <el-upload drag :befor-upload="shourceMapUpload">
+            <el-upload drag :before-upload="shourceMapUpload">
               <div>将文件拖到此处或者<em>点击上传</em></div>
             </el-upload>
           </el-tab-pane>
@@ -50,6 +46,7 @@ import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import sourceMap from "source-map-js";
 let _jserror = ref(null);
+let activeName = ref(null);
 let isError = ref(false);
 let dialogVisible = ref(false);
 let tabactiveName = ref("local");
@@ -79,8 +76,9 @@ const viewDescLogInfos = (item, index) => {
 };
 
 const shourceMapUpload = async (file) => {
-  if (!file.name.endsWith(".map")) {
+  if (file.name.substring(file.name.lastIndexOf(".") + 1) !== "map") {
     ElMessage.error("请传入正确的map文件");
+
     return;
   }
   const reader = new FileReader();
