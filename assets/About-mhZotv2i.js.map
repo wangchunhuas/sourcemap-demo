@@ -1,1 +1,0 @@
-{"version":3,"file":"About-mhZotv2i.js","sources":["../../src/pages/About.vue"],"sourcesContent":["<template>\r\n  <div>关于页面</div>\r\n</template>\r\n<script setup></script>\r\n<style scoped></style>"],"names":["_sfc_render","_ctx","_cache"],"mappings":"uDACE,SAAAA,EAAAC,EAAAC,EAAA"}
