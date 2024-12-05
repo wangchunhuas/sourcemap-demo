@@ -23,7 +23,10 @@
             >
           </el-row>
           <el-row :gutter="20">
-            <template v-if="item.origin"> {{ item.origin }}</template>
+            <template v-if="item.origin">
+              <!-- 错误代码显示美化组件 -->
+              <CodeView :origin="item.origin"></CodeView>
+            </template>
           </el-row>
         </el-collapse-item>
       </el-collapse>
@@ -45,6 +48,7 @@
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import sourceMap from "source-map-js";
+import CodeView from "../components/dealCcodeInfo.vue";
 let _jserror = ref(null);
 let activeName = ref(null);
 let isError = ref(false);
