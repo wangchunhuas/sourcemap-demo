@@ -25,7 +25,7 @@ const routes = [
   {
     name: "play",
     path: "/play",
-    component: () => import("../pages/playScreen.vue"),
+    component: () => import("../pages/PlayScreen.vue"),
   },
 ];
 
