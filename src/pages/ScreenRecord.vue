@@ -79,7 +79,6 @@ let stopFn = null;
 const onStartHandle = () => {
   stopFn = rrweb.record({
     emit: (event) => {
-      console.log(JSON.stringify(event));
       events.push(event);
     },
   });
