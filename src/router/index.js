@@ -17,6 +17,16 @@ const routes = [
     path: "/error",
     component: Error,
   },
+  {
+    name: "record",
+    path: "/record",
+    component: () => import("../pages/ScreenRecord.vue"),
+  },
+  {
+    name: "play",
+    path: "/play",
+    component: () => import("../pages/playScreen.vue"),
+  },
 ];
 
 const router = createRouter({

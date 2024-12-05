@@ -4,6 +4,8 @@
       <div><router-link to="/">Home</router-link></div>
       <div><router-link to="/about">About</router-link></div>
       <div><router-link to="/error">trigger</router-link></div>
+      <div><router-link to="/record">录制</router-link></div>
+      <div><router-link to="/play">回放</router-link></div>
     </div>
     <div class="viewcontent">
       <router-view></router-view>
